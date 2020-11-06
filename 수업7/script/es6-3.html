@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>화살표 함수</title>
+    <script>
+        // 선언적 함수
+        // function compute(){
+        //     var x=10;
+        //     var y=100;
+        //     var result = x/y;
+        //     console.log(result);
+        // }
+        function compute(a,b){
+            var x=a;
+            var y=b;
+            var result = x/y;
+            console.log(result);
+        }
+        compute(10,100);
+
+        // compute();
+        // 익명 함수
+        // compute2(); //이 위치에 작성시 에러, 결과가 안나옴.
+        var compute2 = function(){ //function에 이름이 없으면 익명함수라고 함.
+            var x=0.5;
+            var y=10;
+            var result2 = x*y;
+            console.log(result2);
+        }
+        compute2(0.5,10);
+
+        // 즉시 실행 함수-선언과 동시에 실행 함수, 재호출 안됨. 한번만 실행
+        // (함수실행)(함수호출);
+        /* 1 */
+        (function(a){
+            var sum=a;
+            console.log(sum);
+        })(10);
+
+        /* 2 */
+        var instant = (function(){
+            console.log('즉시 실행 함수');
+        })();
+
+        // 매개변수의 개수가 정해지지 않은 함수
+        // arguments - 인자값을 저장해주는 객체
+        // es5 기본함수임
+        function showSubject(){
+            for(i=0; i<arguments.length; i++){ 
+                console.log(arguments[i]);
+            }
+        }
+        showSubject('html','css','js','jquery');
+
+        // ES6 화살표함수 - function 키워드 생략, {} 생략(실행문 한 줄일 경우), return 생략(실행문 한 줄일 경우). 화살표 함수는 익명함수이기도하다.
+        var TheFnc = function(a,b){
+            return a*b;
+        }
+        console.log(TheFnc(2,5));
+
+        var TheFnc = (a,b) => a*b; // (a,b)-파라미터,매개변수. 화살표함수 전에 있는 괄호
+        console.log(TheFnc(2,5));
+
+        function TheFnc2(c,d){
+            var sum = c+d;
+            return sum;
+        }
+        console.log(TheFnc2(10,5));
+
+        var TheFnc2 = (c,d) => {
+            var sum = c+d;
+            return sum;
+        }
+        console.log(TheFnc2(10,5));
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

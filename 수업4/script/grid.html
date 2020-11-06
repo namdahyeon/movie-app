@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid</title>
+    <style>
+        .grid-container{
+            width:600px;
+            /* 부모는 그리드 컨테이너 */
+            /* 자식은 그리드 아이템 */
+            display:grid;
+            grid-template-rows:70px 200px 70px; /* 행을 각각 70,200,70 크기로 3개 */
+            grid-template-columns:repeat(3,1fr); /* 열을 각각 동일한 비율(fr)로 3개 */
+            grid-gap:10px; /* 선두께(사이간격)를 10크기 */
+        }
+        .grid-item {
+            color:#fff;
+            background-color:#0169ff;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .grid-item.header {
+            grid-column:1 / -1; /* 경계선 중 끝번호(마지막번호)는 -1이라고 지칭 */
+            /* grid-column-star:1; grid-column-end:4; 위내용을 늘여쓴 것 */
+            grid-row-start:1; grid-row-end:2;
+        }
+        .grid-item.nav {
+            grid-column-start:1; grid-column-end:2;
+            grid-row-start:2; grid-row-end:3;
+        }
+        .grid-item.main {
+            grid-column-start:2; grid-column-end:3;
+            grid-row-start:2; grid-row-end:3;
+        }
+        .grid-item.aside {
+            grid-column-start:3; grid-column-end:4;
+            grid-row-start:2; grid-row-end:3;
+        }
+        .grid-item.footer {
+            grid-column:1 / -1;
+            grid-row-start:3; grid-row-end:4;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="grid-item header">Header</div>
+        <div class="grid-item nav">Nav</div>
+        <div class="grid-item main">Main Content</div>
+        <div class="grid-item aside">Aside</div>
+        <div class="grid-item footer">Footer</div>
+    </div>
+</body>
+</html>
